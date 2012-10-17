@@ -1,4 +1,4 @@
-package event.monitor;
+package event.monitor.models;
 
 import java.util.ArrayList;
 
@@ -19,11 +19,10 @@ public class User extends SQLiteOpenHelper {
 	SQLiteDatabase db;
 	private Object sqliteDBInstance;
 	
-	public AssistentesModel(Context context, String name, CursorFactory factory, int version) {
+	public User(Context context, String name, CursorFactory factory, int version) {
 		super(context, name, factory, version);
 	}
 
-	@Override
 	public void createTable(SQLiteDatabase db) {
 		db.execSQL("CREATE TABLE users (_id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, email TEXT, phone TEXT, address TEXT, gender TEXT, workshop_id INTEGER)");
 	}
@@ -98,15 +97,15 @@ public class User extends SQLiteOpenHelper {
 		String result[] = new String [5];
 		sql = "SELECT _id,name,phone,email,address FROM users WHERE name='" + name + "'";
 		Cursor c = this.getReadableDatabase().rawQuery(sql, null);
-		int _id, name, email, phone, address;
+		int _id, name1, email, phone, address;
 		_id =c.getColumnIndex("_id");
-		name =c.getColumnIndex("name");
+		name1 =c.getColumnIndex("name");
 		phone =c.getColumnIndex("phone");
 		email =c.getColumnIndex("email");
 		address =c.getColumnIndex("address");
 		c.moveToLast();
 		result[0] = c.getString(_id);
-		result[1] = c.getString(name);
+		result[1] = c.getString(name1);
 		result[2] = c.getString(phone);
 		result[3] = c.getString(email);
 		result[4] = c.getString(address);
@@ -134,6 +133,12 @@ public class User extends SQLiteOpenHelper {
                 ((Cursor) this.sqliteDBInstance).close();
         }
     }
+
+	@Override
+	public void onCreate(SQLiteDatabase db) {
+		// TODO Auto-generated method stub
+		
+	}
  
 	
 }
