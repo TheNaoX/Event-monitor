@@ -1,4 +1,4 @@
-package event.monitor;
+package event.monitor.models;
 
 import java.util.ArrayList;
 
@@ -13,17 +13,17 @@ import android.util.Log;
 
 
 public class Workshop extends SQLiteOpenHelper {
+
 	private static final String DB_TABLE_NAME = "workshops";
 	private static final String DB_COLUMN_1_NAME = "name";
 	private String sql;
 	SQLiteDatabase db;
 	private Object sqliteDBInstance;
 	
-	public AssistentesModel(Context context, String name, CursorFactory factory, int version) {
+	public Workshop(Context context, String name, CursorFactory factory, int version) {
 		super(context, name, factory, version);
 	}
-
-	@Override
+	
 	public void createTable(SQLiteDatabase db) {
 		db.execSQL("CREATE TABLE workshop (_id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT)");
 	}
@@ -43,7 +43,7 @@ public class Workshop extends SQLiteOpenHelper {
 	
 	public void updateAttributes(int workshopId, String name){
 		db=getWritableDatabase();
-		String strFilter = "_id=" + userId;
+		String strFilter = "_id=" + workshopId;
 		ContentValues args = new ContentValues();
 		args.put("name", name);
 		db.update("workshops", args, strFilter, null);
@@ -56,7 +56,7 @@ public class Workshop extends SQLiteOpenHelper {
 		db.close();
 	}
 	
-	public ArrayList<CUser> all(){
+	public ArrayList<CWorkshop> all(){
 		db = getWritableDatabase();
 		sql = "SELECT _id,name FROM workshops";
 		Cursor cursor = db.rawQuery(sql, null);
@@ -67,7 +67,7 @@ public class Workshop extends SQLiteOpenHelper {
 			CWorkshop workshop = new CWorkshop();
 			workshop._id = cursor.getString(0);
 			workshop.name = cursor.getString(1);
-			workshops.add(user);
+			workshops.add(workshop);
 		}
 		db.close();
 		cursor.close();
@@ -93,12 +93,12 @@ public class Workshop extends SQLiteOpenHelper {
 		String result[] = new String [5];
 		sql = "SELECT _id,name FROM workshops WHERE name='" + name + "'";
 		Cursor c = this.getReadableDatabase().rawQuery(sql, null);
-		int _id, name;
+		int _id, name1;
 		_id =c.getColumnIndex("_id");
-		name =c.getColumnIndex("name");
+		name1 =c.getColumnIndex("name");
 		c.moveToLast();
 		result[0] = c.getString(_id);
-		result[1] = c.getString(name);
+		result[1] = c.getString(name1);
 		db.close();
 		c.close();
 		return result;
@@ -123,4 +123,10 @@ public class Workshop extends SQLiteOpenHelper {
                 ((Cursor) this.sqliteDBInstance).close();
         }
     }
+
+	@Override
+	public void onCreate(SQLiteDatabase db) {
+		// TODO Auto-generated method stub
+		
+	}
 }
