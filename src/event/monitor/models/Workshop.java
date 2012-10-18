@@ -24,6 +24,11 @@ public class Workshop extends SQLiteOpenHelper {
 		super(context, name, factory, version);
 	}
 	
+	@Override
+	public void onCreate(SQLiteDatabase db) {
+    createTable(db);
+	}
+
 	public void createTable(SQLiteDatabase db) {
 		db.execSQL("CREATE TABLE workshop (_id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT)");
 	}
@@ -124,9 +129,4 @@ public class Workshop extends SQLiteOpenHelper {
         }
     }
 
-	@Override
-	public void onCreate(SQLiteDatabase db) {
-		// TODO Auto-generated method stub
-		
-	}
 }
