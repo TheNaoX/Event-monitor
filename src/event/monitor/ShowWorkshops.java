@@ -60,7 +60,7 @@ public class ShowWorkshops extends Activity{
   }
 
   public void setupWorkshop(){
-    workshop = new Workshop(getApplicationContext(),"workshops",null,1);
+    workshop = new Workshop(getApplicationContext(),"workshop",null,1);
   }
 
   private void setupAdapter(){
