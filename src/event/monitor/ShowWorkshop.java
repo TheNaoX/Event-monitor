@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 
 
-public class ShowWorkshops extends Activity{
+public class ShowWorkshop extends Activity{
   private Object workshops;
   private Workshop workshop;
   private ListView list_view;
@@ -22,22 +22,10 @@ public class ShowWorkshops extends Activity{
   @Override
     public void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
-      setContentView(R.layout.show_workshops);
+      setContentView(R.layout.show_workshop);
 
       getViewData();
       setupWorkshop();
-      setupAdapter();
-
-      list_view = (ListView) findViewById(R.id.workshops);
-      list_view.setTextFilterEnabled(true);
-      list_view.setOnItemClickListener(new OnItemClickListener(){
-  		@Override
-        public void onItemClick(AdapterView<?> arg0, View v, int position, long id){
-          Intent myIntent = new Intent(v.getContext(), ShowWorkshop.class);
-          startActivityForResult(myIntent,0);
-        }
-
-      });
 
       Button back = (Button)findViewById(R.id.back);
       back.setOnClickListener(new View.OnClickListener() {
@@ -55,19 +43,6 @@ public class ShowWorkshops extends Activity{
 
   public void setupWorkshop(){
     workshop = new Workshop(getApplicationContext(),"workshop",null,1);
-  }
-
-  private void setupAdapter(){
-    if(workshop.all()!=null)
-    {
-      WorkshopAdapter adapter = new WorkshopAdapter(this,R.layout.workshop_item, workshop.all());
-      ((ListView) workshops).setAdapter(adapter);
-    }
-  }
-
-  public void onResume(){
-    super.onResume();
-    setupAdapter();
   }
 
 }

@@ -24,6 +24,7 @@
         <activity android:name=".NewWorkshop"></activity>
         <activity android:name=".ShowUsers"></activity>
         <activity android:name=".ShowWorkshops"></activity>
+        <activity android:name=".ShowWorkshop"></activity>
     </application>
 
 </manifest>

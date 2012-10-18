@@ -26,6 +26,9 @@
     <string name="new_workshop_form">Create new workshop</string>
     <string name="new_workshop_name">Name:</string>
 
+    <!-- Show workshop labels strings -->
+    <string name="show_workshop_form">Show workshop</string>
+    <string name="show_workshop_name">Name</string>
 
     <!-- Shared strings -->
     <string name="back">Back</string>
