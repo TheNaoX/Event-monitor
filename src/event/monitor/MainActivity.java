@@ -43,6 +43,16 @@ public class MainActivity extends Activity {
             startActivityForResult(myIntent,0);
           }
         });
+
+        Button ShowWorkshops = (Button)findViewById(R.id.button4);
+        ShowWorkshops.setOnClickListener(new View.OnClickListener() {
+
+          public void onClick(View v) {
+            // TODO Auto-generated method stub
+            Intent myIntent = new Intent(v.getContext(), ShowWorkshops.class);
+            startActivityForResult(myIntent,0);
+          }
+        });
     }
 
     @Override
