@@ -19,7 +19,7 @@ public class UserWorkshop extends SQLiteOpenHelper {
 	SQLiteDatabase db;
 	private Object sqliteDBInstance;
 	
-	public User(Context context, String name, CursorFactory factory, int version) {
+	public UserWorkshop(Context context, String name, CursorFactory factory, int version) {
 		super(context, name, factory, version);
 	}
 
@@ -57,9 +57,9 @@ public class UserWorkshop extends SQLiteOpenHelper {
 		{
 			CUserWorkshop user_workshop = new CUserWorkshop();
 			user_workshop._id = cursor.getString(0);
-			user_workshop. = cursor.getString(1);
-			user_workshop.email = cursor.getString(2);
-			user_workshops.add(user);
+			user_workshop.user_id = cursor.getString(1);
+			user_workshop.workshop_id = cursor.getString(2);
+			user_workshops.add(user_workshop);
 		}
 		db.close();
 		cursor.close();
