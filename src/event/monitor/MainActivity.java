@@ -24,6 +24,16 @@ public class MainActivity extends Activity {
           }
         });
 
+        Button NewWorkshop = (Button)findViewById(R.id.button2);
+        NewWorkshop.setOnClickListener(new View.OnClickListener() {
+
+          public void onClick(View v) {
+            // TODO Auto-generated method stub
+            Intent myIntent = new Intent(v.getContext(), NewWorkshop.class);
+            startActivityForResult(myIntent,0);
+          }
+        });
+
         Button ShowUsers = (Button)findViewById(R.id.button3);
         ShowUsers.setOnClickListener(new View.OnClickListener() {
 

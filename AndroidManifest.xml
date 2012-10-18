@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".NewUser"></activity>
+        <activity android:name=".NewWorkshop"></activity>
         <activity android:name=".ShowUsers"></activity>
     </application>
 

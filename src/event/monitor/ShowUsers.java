@@ -1,6 +1,7 @@
 package event.monitor;
 
 import event.monitor.models.User;
+import event.monitor.UserAdapter;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -36,10 +37,9 @@ public class ShowUsers extends Activity{
           String  name=(String)((TextView)v.findViewById(R.id.label_name)).getText();
           String  email=(String)((TextView)v.findViewById(R.id.label_email)).getText();
           String  id1=(String)((TextView)v.findViewById(R.id.label_id)).getText();
-          //Aqui se empieza a construir un Alert con la informacion del usuario
           AlertDialog.Builder alertDialog = new AlertDialog.Builder(ShowUsers.this);
           alertDialog.setTitle("User");
-          alertDialog.setMessage("El elemento seleccionado es = " + name + " " + email + " " + id1);
+          alertDialog.setMessage("The selected item is: " + name + " " + email + " " + id1);
           alertDialog.setPositiveButton("Aceptar", null);
           alertDialog.show();
         }

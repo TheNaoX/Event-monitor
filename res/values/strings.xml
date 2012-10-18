@@ -20,7 +20,14 @@
     <string name="new_user_workshop_id">Workshop</string>
     <string name="new_user_male">Male</string>
     <string name="new_user_female">Female</string>
-    <string name="new_user_back">Back</string>
-    <string name="new_user_save">Save</string>
+
+    <!-- New workshop labels strings -->
+    <string name="new_workshop_form">Create new workshop</string>
+    <string name="new_workshop_name">Name:</string>
+
+
+    <!-- Shared strings -->
+    <string name="back">Back</string>
+    <string name="save">Save</string>
 
 </resources>

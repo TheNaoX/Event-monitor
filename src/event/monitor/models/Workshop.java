@@ -30,7 +30,7 @@ public class Workshop extends SQLiteOpenHelper {
 	}
 
 	public void createTable(SQLiteDatabase db) {
-		db.execSQL("CREATE TABLE workshop (_id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT)");
+		db.execSQL("CREATE TABLE workshops (_id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT)");
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class Workshop extends SQLiteOpenHelper {
 		
 	}
 	
-	public void saveAttributes(String name, String email, String phone, String address, String gender){
+	public void saveAttributes(String name){
 		db=getWritableDatabase();
 		sql="INSERT INTO workshops (name) VALUES ('" + name + "')";
 		db.execSQL(sql);
@@ -93,7 +93,7 @@ public class Workshop extends SQLiteOpenHelper {
 		return result;
 	}
 	
-	public String[] getUsersData(String name){
+	public String[] getWorkshopsData(String name){
 		db = getWritableDatabase();
 		String result[] = new String [5];
 		sql = "SELECT _id,name FROM workshops WHERE name='" + name + "'";

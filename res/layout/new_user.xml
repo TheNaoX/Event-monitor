@@ -128,14 +128,14 @@
             android:layout_width="132dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.17"
-            android:text="@string/new_user_back" />
+            android:text="@string/back" />
 
         <Button
             android:id="@+id/save"
             android:layout_width="136dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.29"
-            android:text="@string/new_user_save" />
+            android:text="@string/save" />
     </LinearLayout>
 
 </LinearLayout>
