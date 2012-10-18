@@ -13,8 +13,7 @@ import android.util.Log;
 
 
 public class Workshop extends SQLiteOpenHelper {
-
-	private static final String DB_TABLE_NAME = "workshops";
+	private static final String DB_TABLE_NAME = "workshop";
 	private static final String DB_COLUMN_1_NAME = "name";
 	private String sql;
 	SQLiteDatabase db;
@@ -26,11 +25,7 @@ public class Workshop extends SQLiteOpenHelper {
 	
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-    createTable(db);
-	}
-
-	public void createTable(SQLiteDatabase db) {
-		db.execSQL("CREATE TABLE workshops (_id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT)");
+		db.execSQL("CREATE TABLE workshop (_id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT)");
 	}
 
 	@Override
@@ -41,7 +36,7 @@ public class Workshop extends SQLiteOpenHelper {
 	
 	public void saveAttributes(String name){
 		db=getWritableDatabase();
-		sql="INSERT INTO workshops (name) VALUES ('" + name + "')";
+		sql="INSERT INTO workshop (name) VALUES ('" + name + "')";
 		db.execSQL(sql);
 		db.close();
 	}
@@ -51,19 +46,19 @@ public class Workshop extends SQLiteOpenHelper {
 		String strFilter = "_id=" + workshopId;
 		ContentValues args = new ContentValues();
 		args.put("name", name);
-		db.update("workshops", args, strFilter, null);
+		db.update("workshop", args, strFilter, null);
 		db.close();
 	}
 	
 	public void destroy(String name){
 		db=getWritableDatabase();
-		db.delete("workshops", "name='" + name + "'", null);
+		db.delete("workshop", "name='" + name + "'", null);
 		db.close();
 	}
 	
 	public ArrayList<CWorkshop> all(){
 		db = getWritableDatabase();
-		sql = "SELECT _id,name FROM workshops";
+		sql = "SELECT _id,name FROM workshop";
 		Cursor cursor = db.rawQuery(sql, null);
 		ArrayList<CWorkshop> workshops = new ArrayList<CWorkshop>();
 
@@ -82,7 +77,7 @@ public class Workshop extends SQLiteOpenHelper {
 	public String[] getWorkshopId(String name){
 		db = getWritableDatabase();
 		String result[] = new String [3];
-		sql = "SELECT _id,name FROM workshops WHERE name='" + name + "'";
+		sql = "SELECT _id,name FROM workshop WHERE name='" + name + "'";
 		Cursor c = this.getReadableDatabase().rawQuery(sql, null);
 		int _id;
 		_id =c.getColumnIndex("_id");
@@ -96,7 +91,7 @@ public class Workshop extends SQLiteOpenHelper {
 	public String[] getWorkshopsData(String name){
 		db = getWritableDatabase();
 		String result[] = new String [5];
-		sql = "SELECT _id,name FROM workshops WHERE name='" + name + "'";
+		sql = "SELECT _id,name FROM workshop WHERE name='" + name + "'";
 		Cursor c = this.getReadableDatabase().rawQuery(sql, null);
 		int _id, name1;
 		_id =c.getColumnIndex("_id");

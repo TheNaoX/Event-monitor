@@ -24,10 +24,7 @@ public class User extends SQLiteOpenHelper {
 	}
 
 	@Override
-	public void onCreate(SQLiteDatabase db) {
-    createTable(db);
-	}
-	public void createTable(SQLiteDatabase db) {
+	public void onCreate(SQLiteDatabase db) {	
 		db.execSQL("CREATE TABLE users (_id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, email TEXT, phone TEXT, address TEXT, gender TEXT, workshop_id INTEGER)");
 	}
 

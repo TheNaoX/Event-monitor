@@ -9,6 +9,7 @@
     <string name="option_one_button">Register new users</string>
     <string name="option_two_button">Register new workshops</string>
     <string name="option_three_button">Show users</string>
+    <string name="option_four_button">Show workshops</string>
 
     <!-- New user labels strings -->
     <string name="new_user_form">Create new user</string>

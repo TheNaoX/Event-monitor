@@ -19,8 +19,8 @@ public class NewWorkshop extends Activity{
       super.onCreate(savedInstanceState);
       setContentView(R.layout.new_workshop);
 
-      getViewData();
       setupWorkshop();
+      getViewData();
       Button CreateWorkshop = (Button)findViewById(R.id.save);
       CreateWorkshop.setOnClickListener(new View.OnClickListener() {
 
@@ -47,7 +47,7 @@ public class NewWorkshop extends Activity{
   }
 
   public void setupWorkshop(){
-    workshop = new Workshop(getApplicationContext(),"workshops",null,1);
+    workshop = new Workshop(getApplicationContext(),"workshop",null,1);
   }
 
 }
